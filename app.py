@@ -1,6 +1,6 @@
 # no terminal: source venv/Scripts/activate, e depois: python app.py
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import sqlite3
 
 app = Flask(__name__)
@@ -23,7 +23,7 @@ init_db()
 
 @app.route('/')
 def home_page():
-    return '<h2>Minha página com Flask!</h2>'
+    return render_template('index.html')
 
 
 @app.route('/doar', methods=['POST'])
